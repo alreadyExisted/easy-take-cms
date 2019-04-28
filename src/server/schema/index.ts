@@ -1,34 +1,29 @@
-import {
-  GraphQLSchema,
-  GraphQLObjectType,
-  GraphQLID,
-  GraphQLString,
-  GraphQLList
-} from 'graphql'
-import { ContentModel } from 'server/models/content-model'
+import { makeExecutableSchema } from 'graphql-tools'
+import { rootService } from 'server/services'
 
-const ContentModelType = new GraphQLObjectType({
-  name: 'ContentModel',
-  fields: () => ({
-    id: { type: GraphQLID },
-    name: { type: GraphQLString },
-    apiIdentifier: { type: GraphQLString },
-    description: { type: GraphQLString }
-  })
-})
-
-const RootQuery = new GraphQLObjectType({
-  name: 'RootQueryType',
-  fields: {
-    contentModels: {
-      type: new GraphQLList(ContentModelType),
-      resolve() {
-        return ContentModel.find()
-      }
-    }
+const typeDefs = `
+  type ContentModel {
+    _id: ID!
+    name: String!
+    apiIdentifier: String
+    description: String
   }
-})
 
-export const schema = new GraphQLSchema({
-  query: RootQuery
+  input ContentModelInput {
+    name: String!
+    apiIdentifier: String
+    description: String
+  }
+
+  type Query {
+    allContentModels: [ContentModel]
+  }
+
+  type Mutation {
+    createContentModel(input: ContentModelInput): ContentModel
+  }
+`
+export const schema = makeExecutableSchema({
+  typeDefs,
+  resolvers: rootService
 })

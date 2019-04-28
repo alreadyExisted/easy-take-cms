@@ -1,18 +1,10 @@
 import express from 'express'
-import mongoose from 'mongoose'
 import { config } from 'config'
 import graphqlHTTP from 'express-graphql'
 import { schema } from 'server/schema'
+import 'server/db'
 
 const app = express()
-
-// mongoose.Promise = global.Promise
-mongoose.connect(config.dbConnectionString, { useNewUrlParser: true })
-const db = mongoose.connection
-db.on('error', console.error.bind(console, 'connection error:'))
-mongoose.connection.once('open', () => {
-  console.log('conneted to database')
-})
 
 app.use(
   '/graphql',

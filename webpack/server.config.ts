@@ -1,6 +1,7 @@
 import * as HappyPack from 'happypack'
 import * as path from 'path'
 import * as webpack from 'webpack'
+import * as nodeExternals from 'webpack-node-externals'
 import { babelLoader, baseConfig } from './base.config'
 import { isDev, rootDir } from './tools'
 
@@ -13,6 +14,8 @@ const serverConfig: webpack.Configuration = {
     __dirname: false,
     __filename: false
   },
+
+  externals: [nodeExternals()],
 
   entry: {
     server: './src/server'

@@ -27,6 +27,7 @@
     "express": "^4.16.4",
     "express-graphql": "^0.8.0",
     "graphql": "^14.2.1",
+    "graphql-tools": "^4.0.4",
     "history": "^4.9.0",
     "intl": "^1.2.5",
     "mongoose": "^5.5.4",
@@ -73,6 +74,7 @@
     "webpack": "^4.30.0",
     "webpack-cli": "^3.3.1",
     "webpack-dev-server": "^3.3.1",
+    "webpack-node-externals": "^1.7.2",
     "webpackbar": "^3.2.0"
   }
 }

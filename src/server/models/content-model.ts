@@ -1,9 +1,11 @@
-import mongoose, { Schema } from 'mongoose'
+import mongoose from 'mongoose'
 
-const contentModelSchema = new Schema({
+const Schema = mongoose.Schema
+
+const ContentModelSchema = new Schema({
   name: String,
   apiIdentifier: String,
   description: String
 })
 
-export const ContentModel = mongoose.model('ContentModel', contentModelSchema)
+export default mongoose.model('contentModel', ContentModelSchema)
