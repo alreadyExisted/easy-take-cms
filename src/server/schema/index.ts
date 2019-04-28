@@ -1,7 +1,8 @@
 import { makeExecutableSchema } from 'graphql-tools'
 import { rootService } from 'server/services'
+import gql from 'graphql-tag'
 
-const typeDefs = `
+const typeDefs = gql`
   type ContentModel {
     _id: ID!
     name: String!
