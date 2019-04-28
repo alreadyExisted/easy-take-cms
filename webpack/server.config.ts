@@ -40,6 +40,11 @@ const serverConfig: webpack.Configuration = {
                 }
               }
             ]
+      },
+      {
+        test: /\.mjs$/,
+        include: /node_modules/,
+        type: 'javascript/auto'
       }
     ]
   },

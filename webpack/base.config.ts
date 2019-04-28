@@ -10,7 +10,7 @@ export const baseConfig: webpack.Configuration = {
   },
 
   resolve: {
-    extensions: ['.tsx', '.ts', '.js'],
+    extensions: ['.tsx', '.ts', '.js', '.mjs'],
     modules: ['src', 'node_modules']
   }
 }
