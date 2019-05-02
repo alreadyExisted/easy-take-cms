@@ -1,11 +1,15 @@
-import ContentModel from 'server/models/content-model'
+import ContentModel, { ContentModelData } from 'server/models/content-model'
+
+interface InputData {
+  input: ContentModelData
+}
 
 export const contentModelService = {
   async allContentModels() {
-    return await ContentModel.find()
+    return ContentModel.find()
   },
 
-  async createContentModel(_: any, { input }: any) {
-    return await ContentModel.create(input)
+  async createContentModel(_: any, { input }: InputData) {
+    return ContentModel.create(input)
   }
 }

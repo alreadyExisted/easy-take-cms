@@ -5,3 +5,14 @@ declare namespace NodeJS {
     MONGODB_CONNECTION_STRING: string
   }
 }
+
+interface Window {
+  env: {
+    api: {
+      self: {
+        host: string
+        port: number
+      }
+    }
+  }
+}
