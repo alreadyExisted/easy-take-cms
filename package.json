@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "debug:client": "webpack-dev-server --mode=development --progress --config ./webpack/client.config.ts",
     "watch": "webpack --mode=development -w -p --config ./webpack/server.config.ts",
     "build": "webpack --mode=production --config ./webpack/all.config.ts",
     "server": "env-cmd ./configs/.env.local nodemon dist/server.js"
