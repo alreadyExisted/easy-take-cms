@@ -1,4 +1,5 @@
 import ApolloClient from 'apollo-boost'
+import { ContentModelCreator } from 'client/components/content-model-creator'
 import { ContentModelList } from 'client/components/content-model-list'
 import { config } from 'config'
 import React from 'react'
@@ -13,5 +14,6 @@ export const App = () => (
   <ApolloProvider client={client}>
     <h1>Hello World</h1>
     <ContentModelList />
+    <ContentModelCreator />
   </ApolloProvider>
 )
