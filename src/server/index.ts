@@ -19,7 +19,7 @@ app.use(
 
 app.get('/', (_req, res) => {
   res.json({
-    msg: 'Hello World'
+    msg: 'Hello World 2'
   })
 })
 
